@@ -1,0 +1,108 @@
+dnd_world/
+│
+├── 📚 Documentation
+│   ├── README.md                   # Main project overview
+│   ├── SETUP.md                    # Detailed setup guide
+│   ├── FEATURES.md                 # Feature list & roadmap
+│   ├── API_EXAMPLES.md             # API usage examples
+│   └── PROJECT_SUMMARY.md          # Technical summary
+│
+├── 🐍 Backend (Python/FastAPI)
+│   ├── app/
+│   │   ├── api/
+│   │   │   ├── endpoints/
+│   │   │   │   ├── auth.py         # Login, register
+│   │   │   │   ├── users.py        # User management
+│   │   │   │   ├── campaigns.py    # Campaign CRUD + members
+│   │   │   │   ├── characters.py   # Character management
+│   │   │   │   ├── places.py       # Location management
+│   │   │   │   ├── items.py        # Item management
+│   │   │   │   ├── quests.py       # Quest tracking
+│   │   │   │   ├── sessions.py     # Session logs
+│   │   │   │   ├── notes.py        # Campaign notes
+│   │   │   │   └── dndbeyond.py    # D&D Beyond import
+│   │   │   └── deps.py             # Auth dependencies
+│   │   │
+│   │   ├── core/
+│   │   │   ├── config.py           # Settings & env vars
+│   │   │   ├── security.py         # JWT & password hashing
+│   │   │   └── database.py         # Database connection
+│   │   │
+│   │   ├── models/
+│   │   │   ├── user.py             # User model
+│   │   │   ├── campaign.py         # Campaign + members
+│   │   │   ├── character.py        # Character + inventory
+│   │   │   ├── place.py            # Places (hierarchical)
+│   │   │   ├── item.py             # Items
+│   │   │   ├── quest.py            # Quests
+│   │   │   ├── session.py          # Sessions
+│   │   │   └── note.py             # Notes
+│   │   │
+│   │   ├── schemas/
+│   │   │   ├── user.py             # User schemas
+│   │   │   ├── campaign.py         # Campaign schemas
+│   │   │   ├── character.py        # Character schemas
+│   │   │   ├── place.py            # Place schemas
+│   │   │   ├── item.py             # Item schemas
+│   │   │   ├── quest.py            # Quest schemas
+│   │   │   ├── session.py          # Session schemas
+│   │   │   └── note.py             # Note schemas
+│   │   │
+│   │   ├── services/
+│   │   │   └── dndbeyond.py        # D&D Beyond integration
+│   │   │
+│   │   └── main.py                 # FastAPI app entry
+│   │
+│   ├── alembic/                    # Database migrations
+│   ├── requirements.txt            # Python dependencies
+│   ├── init_db.py                  # DB initialization script
+│   ├── Dockerfile                  # Backend container
+│   └── .dockerignore
+│
+├── ⚛️  Frontend (React/TypeScript)
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── Layout.tsx          # Main layout with nav
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Login.tsx           # Login page
+│   │   │   ├── Register.tsx        # Registration page
+│   │   │   ├── Dashboard.tsx       # Dashboard
+│   │   │   ├── Campaigns.tsx       # Campaign list
+│   │   │   ├── CampaignDetail.tsx  # Campaign detail
+│   │   │   ├── Characters.tsx      # Character list
+│   │   │   ├── Places.tsx          # Places list
+│   │   │   └── Items.tsx           # Items list
+│   │   │
+│   │   ├── services/
+│   │   │   └── api.ts              # Axios API client
+│   │   │
+│   │   ├── store/
+│   │   │   └── authStore.ts        # Zustand auth store
+│   │   │
+│   │   ├── types/
+│   │   │   └── index.ts            # TypeScript interfaces
+│   │   │
+│   │   ├── App.tsx                 # Main app component
+│   │   ├── main.tsx                # App entry point
+│   │   └── index.css               # Tailwind styles
+│   │
+│   ├── package.json                # NPM dependencies
+│   ├── vite.config.ts              # Vite configuration
+│   ├── tsconfig.json               # TypeScript config
+│   ├── tailwind.config.js          # Tailwind config
+│   ├── Dockerfile                  # Frontend container
+│   └── .dockerignore
+│
+├── 🐳 Docker & Deployment
+│   ├── docker-compose.yml          # Multi-container setup
+│   ├── .env.example                # Environment template
+│   └── start.sh                    # Quick start script
+│
+└── 📊 Stats
+    ├── 56 Source Files (Python/TypeScript)
+    ├── 70+ Total Files
+    ├── 8 Database Models
+    ├── 50+ API Endpoints
+    ├── 7 Frontend Pages
+    └── Full Auth System
