@@ -51,8 +51,10 @@ async def import_character(
         raise HTTPException(
             status_code=400,
             detail="Failed to import character from D&D Beyond. "
-                   "Ensure the URL is correct and the character sheet is public, "
-                   "or provide a valid Cobalt session token."
+                   "D&D Beyond character sheets require JavaScript to load data, which prevents web scraping. "
+                   "Please provide your Cobalt session token to access the character via D&D Beyond's API. "
+                   "To get your token: Log in to D&D Beyond → Open DevTools (F12) → Application → Cookies → "
+                   "Copy the 'CobaltSession' value."
         )
 
     # Create character in database

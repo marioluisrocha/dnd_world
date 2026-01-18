@@ -56,3 +56,26 @@ def update_current_user(
     db.commit()
     db.refresh(current_user)
     return current_user
+
+
+@router.get("/search", response_model=List[User])
+def search_users(
+    q: str,
+    current_user: UserModel = Depends(get_current_active_user),
+    db: Session = Depends(get_db),
+    limit: int = 10
+):
+    """Search for users by email or username."""
+    if len(q) < 2:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Search query must be at least 2 characters"
+        )
+
+    search_pattern = f"%{q}%"
+    users = db.query(UserModel).filter(
+        (UserModel.email.ilike(search_pattern)) |
+        (UserModel.username.ilike(search_pattern))
+    ).limit(limit).all()
+
+    return users

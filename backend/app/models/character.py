@@ -19,8 +19,34 @@ class Character(Base):
     background = Column(String)
     alignment = Column(String)
 
-    # Stats
+    # Stats & Abilities
     stats = Column(JSON)  # {str: 10, dex: 14, con: 12, int: 8, wis: 13, cha: 16}
+    saving_throws = Column(JSON)  # {str: {value: 2, proficient: true}, ...}
+    skills = Column(JSON)  # {acrobatics: {value: 5, proficient: true, expertise: false}, ...}
+
+    # Combat Stats
+    armor_class = Column(Integer)
+    initiative = Column(Integer)
+    speed = Column(Integer)
+    hit_points_max = Column(Integer)
+    hit_points_current = Column(Integer)
+    hit_points_temp = Column(Integer)
+    hit_dice = Column(String)  # e.g., "3d8"
+
+    # Proficiencies & Languages
+    proficiencies = Column(JSON)  # {armor: [], weapons: [], tools: []}
+    languages = Column(JSON)  # ['Common', 'Elvish']
+
+    # Features & Traits
+    features = Column(JSON)  # [{name: '', description: '', source: ''}]
+    traits = Column(JSON)  # Racial traits, class features, etc.
+
+    # Spellcasting
+    spells = Column(JSON)  # {cantrips: [], 1: [], 2: [], ...}
+    spell_slots = Column(JSON)  # {1: {max: 4, used: 2}, ...}
+    spellcasting_ability = Column(String)  # 'INT', 'WIS', 'CHA'
+    spell_save_dc = Column(Integer)
+    spell_attack_bonus = Column(Integer)
 
     # Details
     backstory = Column(Text)
